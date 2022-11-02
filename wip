@@ -1,0 +1,14 @@
+size(500, 500);
+strokeWeight (0);
+stroke(#FFEA46);
+fill(#FFEA46);
+ellipse(375, 355, 72, 70);
+ellipse(375, 370, 75, 75);
+fill(#F5BE65);
+ellipse(375, 360, 27, 17);
+ellipse(375, 365, 22, 17);
+fill(#795E32);
+circle(357, 350, 10);
+circle(392, 350, 10);elect the flag 2 gallery.
+Each team should have only one flag uploaded.
+Make the Title of the image your TN
