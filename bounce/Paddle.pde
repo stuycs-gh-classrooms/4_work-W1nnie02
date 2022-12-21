@@ -1,17 +1,17 @@
-
 class Paddle {
   int px;
   int py;
   int pHeight;
   int pWidth;
 
-Paddle() {
-  px = 0;
-  py = 399;
-  pWidth = PADDLE_WIDTH;
-  pHeight = PADDLE_HEIGHT;
-}
-
-void display() {
-  rect(px, py, pWidth, pHeight);
+  Paddle() {
+    px = width/2 - (PADDLE_WIDTH/2);
+    py = height - (PADDLE_HEIGHT);
+    pWidth = PADDLE_WIDTH;
+    pHeight = PADDLE_HEIGHT;
+ }
+ 
+  void display() {
+    rect(px, py, pWidth, pHeight);
+  }
 }
