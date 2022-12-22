@@ -14,4 +14,12 @@ class Paddle {
   void display() {
     rect(px, py, pWidth, pHeight);
   }
+  
+  void left() {
+    px = px - 1;
+}
+  void right() {
+    px = px + 1;
+}
+
 }
