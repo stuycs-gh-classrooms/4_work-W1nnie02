@@ -9,12 +9,11 @@ Paddle player;
 boolean playing;
 float blockWidth = random (50, 300);
 float numBlocks = random (10, 15);
-Block wall[][];
+
 
 void setup() {
   size(700, 400);
   background (0);
-  wall = new Block[numBlocks][blockWidth];
   b = new Ball();
   player = new Paddle();
 }
@@ -22,4 +21,18 @@ void setup() {
 void draw() {
   b.display();
   player.display();
+}
+
+void keyPressed() {
+  if (key == " ") {
+    b.reset();
+  }
+  if (key == 'a') {
+    player.left();
+  }
+  if (key == 'd') {
+    player.right();
+  }
+}
+  
 }
