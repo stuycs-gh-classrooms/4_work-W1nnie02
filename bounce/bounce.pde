@@ -1,8 +1,11 @@
+//global constants
 int BALL_SIZE = 10;
 int PADDLE_HEIGHT = 15;
 int PADDLE_WIDTH = 150;
 int BLOCK_HEIGHT = 100;
 int BLOCK_WIDTH = 200;
+int rows = 4;
+int cols = 5;
 boolean playing;
 
 //driver variables
@@ -21,15 +24,31 @@ void setup() {
   player = new Paddle();
 }
 
+void blockPos(int value) {
+  for (int i = 1; i <= rows; i++) {
+    int y = i * BLOCK_HEIGHT;
+    int offset = 0;
+    if  (i % 2 == 0) {
+      offset = BLOCK_WIDTH / 2;
+    } else {
+      offset = 0;
+    }
+
+    for (int j = 1; j <= cols; j++) {
+      if (offset == 0) {
+        poke[i-1][j-1] = new Block((i-1)*BLOCK_WIDTH, y, value);
+      } else {
+        poke[i-1][j-1] = new Block((j-1)*BLOCK_WIDTH + offset, y, value);
+      }
+    }
+  }
+}
+
 void draw() {
   background(0);
   b.display();
   player.display();
-  for (int i = 1; i <= poke[i].length; i++) {
-    for (int j = 1; j <= poke[j].length; j++) {
-      poke[i][j].display();
-    }
-  }
+  poke[i-1][j-1]
   if (playing == true) {
     b.move();
     player.left();
@@ -44,26 +63,6 @@ void draw() {
     score = 0;
     println(score);
     playing = false;
-  }
-}
-
-void blockPos(int rows, int cols, int value) {
-  for (int i = 1; i <= rows; i++) {
-    int y = i * BLOCK_HEIGHT;
-    int offset = 0;
-    if  (i % 2 == 0) {
-      offset = BLOCK_WIDTH / 2;
-    } else {
-      offset = 0;
-    }
-
-    for (int j = 1; j <= cols; j++) {
-      if (offset == 0) {
-        poke[i-1][j-1] = new Block(BLOCK_WIDTH, y, value);
-      } else {
-        poke[i-1][j-1] = new Block(BLOCK_WIDTH + offset, y, value);
-      }
-    }
   }
 }
 
